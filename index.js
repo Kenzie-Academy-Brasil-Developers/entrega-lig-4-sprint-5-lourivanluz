@@ -32,9 +32,9 @@ const buscaFilho = (elemento,classe1,classe2) =>{
 
         if(!elemento.classList.contains(classJogador1) && !elemento.classList.contains(classJogador2)){
             return elemento
-        }
-        //popup erro ?
+        } 
     }
+    //popup erro ?
 }
 
 
