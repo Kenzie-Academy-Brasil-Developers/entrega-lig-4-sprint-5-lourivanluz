@@ -22,4 +22,5 @@ const tabulacao = (table) => {
     }    
 }
 
+
 tabulacao(containerGame)
