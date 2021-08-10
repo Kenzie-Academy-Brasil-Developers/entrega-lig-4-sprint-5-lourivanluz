@@ -26,7 +26,7 @@ html, body, header, main, footer, div, h1, p, span {
     width: var(--larguraDaColuna);
     border: 1px solid var(--corPreto);
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
 }
@@ -37,4 +37,13 @@ html, body, header, main, footer, div, h1, p, span {
     border: 1px solid var(--corPreto);
     border-radius: 100%;
     text-align: center;
+}
+
+.jogador1 {
+    border: 2px solid rgb(160, 1, 1);
+    background-color: red;
+}
+.jogador2 {
+    border: 2px solid rgb(1, 61, 1);
+    background-color: green;
 }

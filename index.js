@@ -1,5 +1,7 @@
 const containerGame = document.querySelector("#game")
 
+let contador = 0
+
 const tabulacao = (table) => {
 
     for (let i = 0; i < 7; i++) {
@@ -12,7 +14,11 @@ const tabulacao = (table) => {
             linha.setAttribute("block", j+":"+i)
 
             linha.addEventListener("click", (e) => {
-                console.dir(e.target.parentElement)
+                const colunaSelecionada = e.target.parentElement
+                // por enquando pode ser aqui mas o ideal era colcoar em uma funçao separado
+                const celulaSelecionada = buscaFilho(colunaSelecionada,'jogador1','jogador2')
+                trocaJogador(contador,celulaSelecionada)
+
             })
             coluna.appendChild(linha);
         }
@@ -32,6 +38,16 @@ const buscaFilho = (elemento,classe1,classe2) =>{
             return elemento
         }
         //popup erro ?
+    }
+}
+
+const trocaJogador = (num,elemento) =>{
+    if(num%2===0){
+        elemento.classList.add('jogador1')
+        contador++
+    }else{
+        elemento.classList.add('jogador2')
+        contador++
     }
 }
 
