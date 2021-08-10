@@ -15,10 +15,11 @@ const tabulacao = (table) => {
 
             linha.addEventListener("click", (e) => {
                 const colunaSelecionada = e.target.parentElement
-                // por enquando pode ser aqui mas o ideal era colcoar em uma funçao separado
+                // por enquando pode ser aqui mas o ideal em uma funçao separada
                 const celulaSelecionada = buscaFilho(colunaSelecionada,'jogador1','jogador2')
-                trocaJogador(contador,celulaSelecionada)
-
+                if(celulaSelecionada!== undefined){
+                    trocaJogador(contador,celulaSelecionada)
+                }
             })
             coluna.appendChild(linha);
         }
@@ -32,7 +33,6 @@ const buscaFilho = (elemento,classe1,classe2) =>{
         const elemento = filhos[index]
         const classJogador1 = classe1
         const classJogador2 = classe2
-        console.log(elemento.classList.contains(classJogador1))
 
         if(!elemento.classList.contains(classJogador1) && !elemento.classList.contains(classJogador2)){
             return elemento
