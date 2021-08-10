@@ -35,5 +35,13 @@ const buscaFilho = (elemento,classe1,classe2) =>{
     }
 }
 
+function reseteJogo (elemento) {
+    
+    const alvo = document.querySelector(`#${elemento}`)
+    
+    alvo.remove()
+}
+
 
 tabulacao(containerGame)
+

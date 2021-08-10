@@ -1,22 +1,40 @@
+html, body, header, main, footer, div, h1, p, span {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ /* VARIÁVEIS DE COR */
+:root {
+    --corPreto: #000000;
+}
+
+/* VARIÁVEIS DE DIMENSÕES */
+:root {
+    --raioDoCirculo: 70px;
+    --alturaDaColuna: 500px;
+    --larguraDaColuna: 100px;
+}
+
 .container-game {
     display: flex;
     justify-content: center;
 }
 
 .coluna {
-    height: 450px;
-    width: 100px;
-    border: 1px solid black;
+    height: var(--alturaDaColuna);
+    width: var(--larguraDaColuna);
+    border: 1px solid var(--corPreto);
     display: flex;
     flex-direction: column-reverse;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 }
 
 .linha {
-    width: 90px;
-    height: 60px;
-    border: 1px solid black;
+    width: var(--raioDoCirculo);
+    height: var(--raioDoCirculo);
+    border: 1px solid var(--corPreto);
     border-radius: 100%;
     text-align: center;
 }
