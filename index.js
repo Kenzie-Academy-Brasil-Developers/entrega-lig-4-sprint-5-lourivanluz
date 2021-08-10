@@ -1,6 +1,5 @@
 const containerGame = document.querySelector("#game")
 
-
 const tabulacao = (table) => {
 
     for (let i = 0; i < 7; i++) {
@@ -17,10 +16,7 @@ const tabulacao = (table) => {
             })
             coluna.appendChild(linha);
         }
-
         table.appendChild(coluna);
     }    
-}
-
-
+} 
 tabulacao(containerGame)
