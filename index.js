@@ -64,6 +64,14 @@ function reseteJogo (elemento) {
     alvo.remove()
 }
 
+function criaAlvo() {
+    const paiDoGame = document.querySelector('#pai-do-game')
+    const game = document.createElement('div')
+    game.setAttribute('id', 'game')
+    game.classList.add('container-game')
+    paiDoGame.appendChild(game)
+}
+
 
 tabulacao(containerGame)
 
