@@ -116,5 +116,43 @@ const placar = (jogadorVencedor) => {
 }
 
 
+
+
+    /* const arrayLb = arrayVitorioso(posicao,1,0)
+    const arrayLE = arrayVitorioso(posicao,0,-1)
+    const arrayLD = arrayVitorioso(posicao,0,1)
+    const arrayTv1 = arrayVitorioso(posicao,1,1)
+    const arrayTva = arrayVitorioso(posicao,-1,-1)
+    const arraytv2 = arrayVitorioso(posicao,1,-1)
+    const arrayTv2a = arrayVitorioso(posicao,-1,1) */
+
+const criaArrayVitorioso = (posicao,nLinha=0,nColuna=0) =>{
+    const arrayVitoria = []
+    arrayVitoria.push(posicao)
+    const position = posicao.split(':')
+    let linha = Number(position[0])
+    let coluna = Number(position[1])
+
+    for(let contador = 0; contador<3; contador++){
+
+        if(nLinha>0){
+            linha+=1
+        }else if (nLinha<0){
+            linha-=1
+        }
+
+        if(nColuna>0){
+            coluna+=1
+        }else if (nColuna<0){
+            coluna-=1
+        }
+        arrayVitoria.push(linha+':'+coluna)
+    }
+    return arrayVitoria
+}
+
+
+
+
 tabulacao(containerGame)
 
