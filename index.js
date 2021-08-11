@@ -1,5 +1,15 @@
 const containerGame = document.querySelector("#game")
 
+let contador = 0
+
+const transformaJogador = (num) =>{
+    if(num%2===0){
+        return'jogador1'
+    }
+    return 'jogador2'
+
+}
+
 
 const tabulacao = (table) => {
 
@@ -13,11 +23,15 @@ const tabulacao = (table) => {
             linha.setAttribute("block", j+":"+i)
 
             linha.addEventListener("click", (e) => {
-                console.dir(e.target.parentElement)
+                const colunaSelecionada = e.target.parentElement
+                // por enquando pode ser aqui mas o ideal em uma funçao separada
+                const celulaSelecionada = buscaFilho(colunaSelecionada,'jogador1','jogador2')
+                if(celulaSelecionada!== undefined){
+                    trocaJogador(celulaSelecionada)
+                }
             })
             coluna.appendChild(linha);
         }
-
         table.appendChild(coluna);
     }    
 }
@@ -28,7 +42,6 @@ const buscaFilho = (elemento,classe1,classe2) =>{
         const elemento = filhos[index]
         const classJogador1 = classe1
         const classJogador2 = classe2
-        console.log(elemento.classList.contains(classJogador1))
 
         if(!elemento.classList.contains(classJogador1) && !elemento.classList.contains(classJogador2)){
             return elemento
@@ -37,5 +50,20 @@ const buscaFilho = (elemento,classe1,classe2) =>{
     //popup erro ?
 }
 
+const trocaJogador = (elemento) =>{
+
+    const jogador = transformaJogador(contador)
+    elemento.classList.add(jogador)
+    contador++
+}
+
+function reseteJogo (elemento) {
+    
+    const alvo = document.querySelector(`#${elemento}`)
+    
+    alvo.remove()
+}
+
 
 tabulacao(containerGame)
+
