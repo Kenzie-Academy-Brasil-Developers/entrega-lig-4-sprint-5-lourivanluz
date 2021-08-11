@@ -19,6 +19,7 @@ const tabulacao = (table) => {
                 const celulaSelecionada = buscaFilho(colunaSelecionada,'jogador1','jogador2')
                 if(celulaSelecionada!== undefined){
                     trocaJogador(contador,celulaSelecionada)
+                    posicaoJogador('jogador1')
                 }
             })
             coluna.appendChild(linha);
@@ -33,9 +34,11 @@ const buscaFilho = (elemento,classe1,classe2) =>{
         const elemento = filhos[index]
         const classJogador1 = classe1
         const classJogador2 = classe2
+        
 
         if(!elemento.classList.contains(classJogador1) && !elemento.classList.contains(classJogador2)){
             return elemento
+            
         }
         //popup erro ?
     }
@@ -50,6 +53,22 @@ const trocaJogador = (num,elemento) =>{
         contador++
     }
 }
+
+const posicaoJogador = (jogador) => {
+
+    let arrayPosicao = []
+
+    let elementosJogador = document.querySelectorAll('.'+jogador)
+
+    for (let i = 0; i < elementosJogador.length; i++) {
+        let posicao = elementosJogador[i].getAttribute("block")
+        arrayPosicao.push(posicao)
+    }
+
+    console.log(arrayPosicao)
+}
+
+
 
 function reseteJogo (elemento) {
     
