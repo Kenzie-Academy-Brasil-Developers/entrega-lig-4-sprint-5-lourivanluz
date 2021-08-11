@@ -27,8 +27,11 @@ const tabulacao = (table) => {
                 // por enquando pode ser aqui mas o ideal em uma funçao separada
                 const celulaSelecionada = buscaFilho(colunaSelecionada,'jogador1','jogador2')
                 if(celulaSelecionada!== undefined){
+                    const posicao = celulaSelecionada.getAttribute('block')
+                    posicaoJogador(posicao,transformaJogador(contador))
                     trocaJogador(celulaSelecionada)
-                    posicaoJogador(transformaJogador(contador))
+
+                    
                 }
             })
             coluna.appendChild(linha);
@@ -60,9 +63,10 @@ const trocaJogador = (elemento) =>{
     contador++
 }
 
-const posicaoJogador = (jogador) => {
+const posicaoJogador = (posicao,jogador) => {
 
     let arrayPosicao = []
+    arrayPosicao.push(posicao)
 
     let elementosJogador = document.querySelectorAll('.'+jogador)
 
