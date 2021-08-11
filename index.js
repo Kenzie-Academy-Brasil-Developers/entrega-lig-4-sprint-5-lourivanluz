@@ -2,6 +2,15 @@ const containerGame = document.querySelector("#game")
 
 let contador = 0
 
+const transformaJogador = (num) =>{
+    if(num%2===0){
+        return'jogador1'
+    }
+    return 'jogador2'
+
+}
+
+
 const tabulacao = (table) => {
 
     for (let i = 0; i < 7; i++) {
@@ -18,7 +27,7 @@ const tabulacao = (table) => {
                 // por enquando pode ser aqui mas o ideal em uma funçao separada
                 const celulaSelecionada = buscaFilho(colunaSelecionada,'jogador1','jogador2')
                 if(celulaSelecionada!== undefined){
-                    trocaJogador(contador,celulaSelecionada)
+                    trocaJogador(celulaSelecionada)
                 }
             })
             coluna.appendChild(linha);
@@ -41,14 +50,11 @@ const buscaFilho = (elemento,classe1,classe2) =>{
     }
 }
 
-const trocaJogador = (num,elemento) =>{
-    if(num%2===0){
-        elemento.classList.add('jogador1')
-        contador++
-    }else{
-        elemento.classList.add('jogador2')
-        contador++
-    }
+const trocaJogador = (elemento) =>{
+
+    const jogador = transformaJogador(contador)
+    elemento.classList.add(jogador)
+    contador++
 }
 
 function reseteJogo (elemento) {
