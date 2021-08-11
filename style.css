@@ -7,8 +7,8 @@ html, body, header, main, footer, div, h1, p, span {
 
  /* VARIÁVEIS DE COR */
 :root {
-    --corPreto: #000000;
-    --corBordaJogador1: #6d0303;
+    --corPreto: #000000b2;
+    --corBordaJogador1: var(--corPreto);
     --corFundoJogador1: #ca050be3;
     --corBordaJogador2: #013d01;
     --corFundoJogador2: #7EB50B;
@@ -32,7 +32,7 @@ html, body, header, main, footer, div, h1, p, span {
 .coluna {
     height: var(--alturaDaColuna);
     width: var(--larguraDaColuna);
-    border: 1px solid var(--corPreto);
+    /* border: 1px solid var(--corPreto); */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -59,10 +59,22 @@ html, body, header, main, footer, div, h1, p, span {
     .jogador1 {
         border: 2px solid var(--corBordaJogador1);
         background-color: var(--corFundoJogador1);
-        box-shadow: 0 0 8px var(--corPreto) inset;
+        box-shadow: 0 0 8px 1.5px var(--corPreto) inset;
+        animation-name: queda;
+        animation-duration: 2s;
+        animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     .jogador2 {
         border: 2px solid var(--corBordaJogador2);
         background-color: var(--corFundoJogador2);
-        box-shadow: 0 0 8px var(--corBordaJogador2) inset;
+        box-shadow: 0 0 8px 3px var(--corBordaJogador2) inset;
+        animation-name: queda;
+        animation-duration: 2s;
+        animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
+
+@keyframes queda {
+    0%{
+        transform: translateY(-580%);
+    }
+}
