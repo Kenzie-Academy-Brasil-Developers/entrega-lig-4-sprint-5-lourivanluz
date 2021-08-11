@@ -18,15 +18,25 @@ html, body, header, main, footer, div, h1, p, span {
 
 /* VARIÁVEIS DE DIMENSÕES */
 :root {
-    --raioDoCirculo: 70px;
-    --alturaDaColuna: 500px;
+    --raioDoCirculo: 40px;
+    --alturaDaColuna: 100%;
     --larguraDaColuna: 100px;
     --borderRadius: 20px;
+}
+
+#pai-do-game {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container-game {
     display: flex;
     justify-content: center;
+    width: 98vw;
+    min-width: 319px;
+    max-width: 670px;
+    height: 55vh;
 }
 
 .coluna {
@@ -84,4 +94,15 @@ html, body, header, main, footer, div, h1, p, span {
     100%{
         transform: translateY(0%);
     }
+}
+
+@media (min-width: 750px) {
+    :root {
+        --raioDoCirculo: 70px;
+        --alturaDaColuna: 500px;
+        --larguraDaColuna: 20%;
+        --borderRadius: 20px;
+    }
+
+    
 }
