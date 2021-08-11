@@ -92,6 +92,25 @@ function criaAlvo() {
     tabulacao(game)
 }
 
+const placar = (jogadorVencedor) => {
+
+    let spanPlacarJogador1 = document.querySelector(".placar-jogador-um")
+    let spanPlacarJogador2 = document.querySelector(".placar-jogador-dois")
+
+    let placarJogador1 = elmPlacarJogador1.innerText
+    let placarJogador2 = elmPlacarJogador2.innerText
+
+    if (jogadorVencedor === 'jogador1') {
+        placarJogador1++
+        spanPlacarJogador1.innerText = placarJogador1
+    }
+
+    if (jogadorVencedor === "jogador2") {
+        placarJogador2++
+        spanPlacarJogador2.innerText = placarJogador2
+    }
+}
+
 
 tabulacao(containerGame)
 
