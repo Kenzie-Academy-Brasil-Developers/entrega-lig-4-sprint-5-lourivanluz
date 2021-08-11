@@ -65,5 +65,26 @@ function reseteJogo (elemento) {
 }
 
 
+function vitoria(booleano) {
+    if (booleano === true) {
+        
+        const paiDoGame = document.querySelector('#pai-do-game')
+        const telaVitoria = document.createElement('div')
+        const vitoriaCentro = document.createElement('div')
+        telaVitoria.setAttribute('id', 'tela-vitoria')
+        vitoriaCentro.setAttribute('id', 'centralizar-vitoria')
+        telaVitoria.appendChild(vitoriaCentro)
+        paiDoGame.appendChild(telaVitoria)
+
+        vitoriaCentro.innerText = 'Vitória'
+
+        paiDoGame.addEventListener('click', function () {
+            console.log('Você ganhou!!!')
+        })
+
+    }
+}
+
+
 tabulacao(containerGame)
 
