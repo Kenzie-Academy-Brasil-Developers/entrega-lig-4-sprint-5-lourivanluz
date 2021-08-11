@@ -57,11 +57,11 @@ const trocaJogador = (elemento) =>{
     contador++
 }
 
-function reseteJogo (elemento) {
+function reseteJogo () {
     
-    const alvo = document.querySelector(`#${elemento}`)
-    
+    const alvo = document.querySelector('#game')
     alvo.remove()
+    criaAlvo()
 }
 
 function criaAlvo() {
@@ -70,6 +70,7 @@ function criaAlvo() {
     game.setAttribute('id', 'game')
     game.classList.add('container-game')
     paiDoGame.appendChild(game)
+    tabulacao(game)
 }
 
 
