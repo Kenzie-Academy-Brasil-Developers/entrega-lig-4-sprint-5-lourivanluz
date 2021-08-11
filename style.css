@@ -24,6 +24,60 @@ html, body, header, main, footer, div, h1, p, span {
     --borderRadius: 20px;
 }
 
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 10vh;
+}
+
+.titulo {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    font-size: 42px;
+}
+
+#topo-game {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 10vh;
+}
+
+#selecao-jogador {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.escolha {
+    display: flex;
+    justify-content: space-evenly;
+
+    width: 100%;
+}
+
+.botao {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--corFundoJogador2);
+}
+    .b1 { background-color: var(--corFundoJogador2); }
+    .b2 { background-color: var(--corFundoJogador1); }
+
+#bnt {
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    font-size: 35px;
+    font-weight: 800;
+    color: #7EB50B;
+}
+
 #pai-do-game {
     display: flex;
     align-items: center;
@@ -103,6 +157,4 @@ html, body, header, main, footer, div, h1, p, span {
         --larguraDaColuna: 20%;
         --borderRadius: 20px;
     }
-
-    
 }
