@@ -76,11 +76,20 @@ const posicaoJogador = (jogador) => {
 
 
 
-function reseteJogo (elemento) {
-    
-    const alvo = document.querySelector(`#${elemento}`)
-    
+function reseteJogo () {
+  
+    const alvo = document.querySelector('#game')
     alvo.remove()
+    criaAlvo()
+}
+
+function criaAlvo() {
+    const paiDoGame = document.querySelector('#pai-do-game')
+    const game = document.createElement('div')
+    game.setAttribute('id', 'game')
+    game.classList.add('container-game')
+    paiDoGame.appendChild(game)
+    tabulacao(game)
 }
 
 
