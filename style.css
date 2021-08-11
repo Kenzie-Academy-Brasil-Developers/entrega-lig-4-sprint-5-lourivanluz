@@ -1,3 +1,4 @@
+/* RESETE */
 html, body, header, main, footer, div, h1, p, span {
     margin: 0;
     padding: 0;
@@ -6,7 +7,13 @@ html, body, header, main, footer, div, h1, p, span {
 
  /* VARIÁVEIS DE COR */
 :root {
-    --corPreto: #000000;
+    --corPreto: #000000b2;
+    --corBordaJogador1: var(--corPreto);
+    --corFundoJogador1: #ca050be3;
+    --corBordaJogador2: #013d01;
+    --corFundoJogador2: #7EB50B;
+    --corFundoColuna: #1d5552;
+    --corFundoLinha: #04817C;
 }
 
 /* VARIÁVEIS DE DIMENSÕES */
@@ -14,6 +21,7 @@ html, body, header, main, footer, div, h1, p, span {
     --raioDoCirculo: 70px;
     --alturaDaColuna: 500px;
     --larguraDaColuna: 100px;
+    --borderRadius: 20px;
 }
 
 .container-game {
@@ -24,12 +32,21 @@ html, body, header, main, footer, div, h1, p, span {
 .coluna {
     height: var(--alturaDaColuna);
     width: var(--larguraDaColuna);
-    border: 1px solid var(--corPreto);
+    /* border: 1px solid var(--corPreto); */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    background-color: var(--corFundoColuna);
 }
+    .coluna0 {
+        border-top-left-radius: var(--borderRadius);
+        border-bottom-left-radius: var(--borderRadius);
+    }
+    .coluna6 {
+        border-top-right-radius: var(--borderRadius);
+        border-bottom-right-radius: var(--borderRadius);
+    }
 
 .linha {
     width: var(--raioDoCirculo);
@@ -37,13 +54,34 @@ html, body, header, main, footer, div, h1, p, span {
     border: 1px solid var(--corPreto);
     border-radius: 100%;
     text-align: center;
+    background-color: var(--corFundoLinha);
 }
+    .jogador1 {
+        border: 2px solid var(--corBordaJogador1);
+        background-color: var(--corFundoJogador1);
+        box-shadow: 0 0 8px 1.5px var(--corPreto) inset;
+        animation-name: queda;
+        animation-duration: 2s;
+    }
+    .jogador2 {
+        border: 2px solid var(--corBordaJogador2);
+        background-color: var(--corFundoJogador2);
+        box-shadow: 0 0 8px 3px var(--corBordaJogador2) inset;
+        animation-name: queda;
+        animation-duration: 2s;
+    }
 
-.jogador1 {
-    border: 2px solid rgb(160, 1, 1);
-    background-color: red;
-}
-.jogador2 {
-    border: 2px solid rgb(1, 61, 1);
-    background-color: green;
+@keyframes queda {
+    0%{
+        transform: translateY(-580%);
+    }
+    25%{
+        transform: translateY(0%);
+    }
+    50%{
+        transform: translateY(-30%);
+    }
+    100%{
+        transform: translateY(0%);
+    }
 }
