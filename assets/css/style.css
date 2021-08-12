@@ -63,20 +63,20 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    height: 10vh;
+    height: 15vh;
 }
 
 #selecao-jogador {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
     height: 100%;
 }
 
 .escolha {
     display: flex;
     justify-content: space-evenly;
-
     width: 100%;
 }
 
@@ -91,7 +91,6 @@ header {
     background-image: url("../img/peixeAzul.png");
     background-repeat: no-repeat;
     background-size: contain;
-    padding: 22px;
 }
     .b1 { background-image: url("../img/peixeVermelho.png"); }
     .b2 { background-image: url("../img/peixeVerde.png"); }
