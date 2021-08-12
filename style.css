@@ -22,10 +22,10 @@ img{
 
 /* VARIÁVEIS DE DIMENSÕES */
 :root {
-    --raioDoCirculo: 70px;
-    --alturaDaColuna: 500px;
-    --larguraDaColuna: 100px;
-    --borderRadius: 20px;
+    --raioDoCirculo: 33px;
+    --alturaDaColuna: 300px;
+    --larguraDaColuna: 42px;
+    --borderRadius: 50px;
 }
 
 
