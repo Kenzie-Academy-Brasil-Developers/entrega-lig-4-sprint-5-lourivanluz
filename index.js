@@ -151,8 +151,34 @@ const criaArrayVitorioso = (posicao,nLinha=0,nColuna=0) =>{
     return arrayVitoria
 }
 
+const validarVitoria = (arrayVitoria, arrayPosicao) => {
 
+    let arrResult = []
 
+    arrayPosicao.filter((el) => {
+    
+        if(el === arrayVitoria[0]) {
+            arrResult.push(el)
+        }
+    
+        if (el === arrayVitoria[1]) {
+            arrResult.push(el)
+        }
+    
+        if(el === arrayVitoria[2]) {
+            arrResult.push(el)
+        }
+    
+        if (el === arrayVitoria[3]) {
+            arrResult.push(el)
+        }
+    })
+
+    if(arrResult.length === 4) {
+        // TELA VITORIA
+    }
+
+}
 
 tabulacao(containerGame)
 
