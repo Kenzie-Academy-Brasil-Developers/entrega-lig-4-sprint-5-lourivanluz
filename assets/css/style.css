@@ -27,7 +27,7 @@ html, body, header, main, footer, div, h1, p, span, button {
 }
 
 #corpo {
-    background-image: url("../img/fundoBK.jpg");
+    background-image: url("../img/fundoBK.jpg"); /* rever esse background */
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -45,12 +45,12 @@ main {
     position: relative;
 }
 
-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 10vh;
-}
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 10vh;
+    }
 .txtSelecaoJogador {
     color: var(--corTXT);
 }
