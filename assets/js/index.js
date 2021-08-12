@@ -150,9 +150,37 @@ const criaArrayVitorioso = (posicao,nLinha=0,nColuna=0) =>{
     }
     return arrayVitoria
 }
-
-
-
-
 tabulacao(containerGame)
 
+
+
+
+function telasVitoriaEmpate(condicao) {
+    const main = document.querySelector('main')
+    const telaGrande = document.createElement('div')
+    const telaAviso = document.createElement('div')
+    telaAviso.setAttribute('id', 'aviso')
+    telaGrande.setAttribute('id', 'telaGrande')
+    main.appendChild(telaGrande)
+    telaGrande.appendChild(telaAviso)
+
+    if (condicao) {
+        telaAviso.appendChild(vitoria())
+    } else {
+        telaAviso.appendChild(derrota())
+    }
+}
+telasVitoriaEmpate(false)
+
+function vitoria() {
+    const vitoria = document.createElement('div')
+    vitoria.setAttribute('id', 'vitoria')
+    vitoria.innerHTML = '<span class="txtVitoria"> Você Venceu!! </span>'
+    return vitoria
+}
+function derrota() {
+    const derrota = document.createElement('div')
+    derrota.setAttribute('id', 'derrota')
+    derrota.innerHTML = '<span class="txtDerrota"> Você Perdeu! </span>'
+    return derrota
+}
