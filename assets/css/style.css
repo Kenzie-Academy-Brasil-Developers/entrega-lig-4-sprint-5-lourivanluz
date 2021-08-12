@@ -12,8 +12,8 @@ html, body, header, main, footer, div, h1, p, span {
     --corFundoJogador1: #ca050be3;
     --corBordaJogador2: #013d01;
     --corFundoJogador2: #7EB50B;
-    --corFundoColuna: #1d5552;
-    --corFundoLinha: #04817C;
+    /* --corFundoColuna: #1d5552; */
+    /* --corFundoLinha: #04817C; */
 }
 
 /* VARIÁVEIS DE DIMENSÕES */
@@ -22,6 +22,10 @@ html, body, header, main, footer, div, h1, p, span {
     --alturaDaColuna: 100%;
     --larguraDaColuna: 100px;
     --borderRadius: 20px;
+}
+
+#corpo {
+    background-image: url("assets/img/bgMar.png");
 }
 
 header {
@@ -122,7 +126,10 @@ header {
 }
     .jogador1 {
         border: 2px solid var(--corBordaJogador1);
-        background-color: var(--corFundoJogador1);
+        /* background-color: var(--corFundoJogador1); */
+        background-image: url("./assets/img/peixeVermelho.png");
+        background-repeat: no-repeat;
+        background-size: contain;
         box-shadow: 0 0 8px 1.5px var(--corPreto) inset;
         animation-name: queda;
         animation-duration: 2s;
