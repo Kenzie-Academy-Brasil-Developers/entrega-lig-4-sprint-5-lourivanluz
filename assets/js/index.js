@@ -155,7 +155,7 @@ tabulacao(containerGame)
 
 
 
-function telasVitoriaEmpate(condicao) {
+/* function telasVitoriaEmpate(condicao) {
     const main = document.querySelector('main')
     const telaGrande = document.createElement('div')
     const telaAviso = document.createElement('div')
@@ -183,4 +183,4 @@ function derrota() {
     derrota.setAttribute('id', 'derrota')
     derrota.innerHTML = '<span class="txtDerrota"> Você Perdeu! </span>'
     return derrota
-}
+} */
