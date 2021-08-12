@@ -73,6 +73,28 @@ main {
             display: none;
         }
 
+
+        .telaInstrucao{
+            width: 80%;
+            background-color: orange;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            padding: 15px 15px;
+ 
+        }
+
+            .container-dicas{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+                .dicaVitoria{
+                    width: 200px;
+                }
+
     #pai-do-game {
         display: flex;
         align-items: center;
