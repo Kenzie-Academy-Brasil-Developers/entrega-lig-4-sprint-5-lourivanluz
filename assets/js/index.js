@@ -17,7 +17,7 @@ const jogar = (elemento) =>{
         const posicao = celulaSelecionada.getAttribute('block')
 
        const todasPosicoesJogadas = posicaoJogador(posicao,transformaJogador(contador))
-       condicaoDeVitoria(posicao,todasPosicoesJogadas)
+       condicaoDeVitoria(posicao,todasPosicoesJogadas,transformaJogador(contador))
         trocaJogador(celulaSelecionada)
     }
 }
@@ -36,7 +36,12 @@ const tabulacao = (table) => {
 
             linha.addEventListener("click", (e) => {
                 const colunaSelecionada = e.target.parentElement
-                jogar(colunaSelecionada)        
+                if(contador<42){
+                    jogar(colunaSelecionada) 
+                }else{
+                    console.log('chama tela Empate')
+                }
+                       
             })
             coluna.appendChild(linha);
         }
@@ -174,7 +179,7 @@ const validarVitoria = (arrayVitoria, arrayPosicao) => {
     return result
 }
 
-const condicaoDeVitoria = (posicao, posicaojogada) =>{
+const condicaoDeVitoria = (posicao, posicaojogada,jogador) =>{
 
     const arrayPosicao = posicaojogada
 
@@ -193,8 +198,13 @@ const condicaoDeVitoria = (posicao, posicaojogada) =>{
         const arrayvitoria = item
         const resultado = validarVitoria(arrayvitoria, arrayPosicao)
         if(resultado){
-            console.log('vencedor')
-            //cria tela de vencedor
+
+
+            console.log('vencedor' + jogador)
+            placar(jogador)
+            //cria tela de vencedor com o jogador
+            reseteJogo()
+            contador = 0
         }
     })
 }
