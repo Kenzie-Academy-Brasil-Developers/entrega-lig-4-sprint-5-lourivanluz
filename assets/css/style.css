@@ -18,6 +18,7 @@ img{
     --corFundoJogador2: #7EB50B;
     --corFundoColuna: #1d5552;
     --corFundoLinha: #04817C;
+    --corTXT: #ffffff;
 }
 
 /* VARIÁVEIS DE DIMENSÕES */
@@ -33,6 +34,7 @@ main {
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+    width: 100vw;
 
     display: flex;
     flex-direction: column;
@@ -40,7 +42,7 @@ main {
 }
 
 .container-geral{
-    max-width: 1024px;
+    /* max-width: 1024px; */
     min-height: 100vh;
     margin: 0 auto;
 }
@@ -123,6 +125,14 @@ main {
     background-size: cover;
 }
 
+.hidden {
+    display: none;
+}
+
+.regras {
+    display: block;
+}
+
 
 footer{
     width: 100%;
@@ -180,6 +190,16 @@ footer{
             left: 25px;
             top: 10px;
             text-align: right;
+        }
+
+        .button-menu {
+        background-color: #d6d6d670;
+        border: 1px solid var(--corBordaBolha);
+        border-radius: 50%;
+        padding: 0 15px;
+        font-size: 35px;
+        font-weight: 800;
+        color: var(--corTXT);
         }
 
 

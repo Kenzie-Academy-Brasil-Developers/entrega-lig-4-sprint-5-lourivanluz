@@ -209,5 +209,31 @@ const condicaoDeVitoria = (posicao, posicaojogada,jogador) =>{
     })
 }
 
+
+const telaRegras = () => {
+
+    const regras = document.querySelector(".regras")
+    const regrasBtn = document.querySelector(".regras-btn")
+    const btnInterrogacao = document.querySelector(".btn-interrogacao")
+
+    regrasBtn.addEventListener("click", (e) => {
+        regras.classList.remove("regras")
+        regras.classList.add("hidden")
+    })
+
+    btnInterrogacao.addEventListener("click", (e) => {
+
+        regras.classList.remove("hidden")
+        regras.classList.add("regras")
+        })
+}
+
+telaRegras()
+
+
+
+
+
+
 tabulacao(containerGame)
 
