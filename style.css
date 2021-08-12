@@ -38,11 +38,37 @@ img{
 }
     .container-geral header{
         width: 100%;
-        height: 150px;
-        background-color: green;
-        display: flex;
-        justify-content: space-between;
+        height: 120px;
+        position: relative;
+
     }
+        .imglogo {
+            width: 150px;
+            margin: 0 auto;
+            
+        }
+        .instrucao {
+            padding: 10px;
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
+            position: absolute;
+            right: 30px;
+            top: 15px;
+            display: none;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
     .container-game {
         display: flex;
