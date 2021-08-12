@@ -10,6 +10,18 @@ const transformaJogador = (num) =>{
 
 }
 
+const jogar = (elemento) =>{
+    const celulaSelecionada = buscaFilho(elemento,'jogador1','jogador2')
+
+    if(celulaSelecionada!== undefined){
+        const posicao = celulaSelecionada.getAttribute('block')
+
+       const todasPosicoesJogadas = posicaoJogador(posicao,transformaJogador(contador))
+       condicaoDeVitoria(posicao,todasPosicoesJogadas)
+        trocaJogador(celulaSelecionada)
+    }
+}
+
 
 const tabulacao = (table) => {
 
@@ -24,15 +36,7 @@ const tabulacao = (table) => {
 
             linha.addEventListener("click", (e) => {
                 const colunaSelecionada = e.target.parentElement
-                // por enquando pode ser aqui mas o ideal em uma funçao separada
-                const celulaSelecionada = buscaFilho(colunaSelecionada,'jogador1','jogador2')
-                if(celulaSelecionada!== undefined){
-                    const posicao = celulaSelecionada.getAttribute('block')
-                    posicaoJogador(posicao,transformaJogador(contador))
-                    trocaJogador(celulaSelecionada)
-
-                    
-                }
+                jogar(colunaSelecionada)        
             })
             coluna.appendChild(linha);
         }
@@ -75,7 +79,7 @@ const posicaoJogador = (posicao,jogador) => {
         arrayPosicao.push(posicao)
     }
 
-    console.log(arrayPosicao)
+    return arrayPosicao
 }
 
 
@@ -115,6 +119,85 @@ const placar = (jogadorVencedor) => {
     }
 }
 
+
+const criaArrayVitorioso = (posicao,nLinha=0,nColuna=0) =>{
+    const arrayVitoria = []
+    arrayVitoria.push(posicao)
+    const position = posicao.split(':')
+    let linha = Number(position[0])
+    let coluna = Number(position[1])
+
+    for(let contador = 0; contador<3; contador++){
+
+        if(nLinha>0){
+            linha+=1
+        }else if (nLinha<0){
+            linha-=1
+        }
+
+        if(nColuna>0){
+            coluna+=1
+        }else if (nColuna<0){
+            coluna-=1
+        }
+        arrayVitoria.push(linha+':'+coluna)
+    }
+    return arrayVitoria
+}
+
+const validarVitoria = (arrayVitoria, arrayPosicao) => {
+
+    let result = false
+    let arrResult = []
+
+    arrayPosicao.filter((el) => {
+        if(el === arrayVitoria[0]) {
+            arrResult.push(el)
+        }
+    
+        if (el === arrayVitoria[1]) {
+            arrResult.push(el)
+        }
+    
+        if(el === arrayVitoria[2]) {
+            arrResult.push(el)
+        }
+    
+        if (el === arrayVitoria[3]) {
+            arrResult.push(el)
+        }
+    })
+
+    if(arrResult.length === 4) {
+        result = true
+    }
+    return result
+}
+
+const condicaoDeVitoria = (posicao, posicaojogada) =>{
+
+    const arrayPosicao = posicaojogada
+
+    const arrayLB = criaArrayVitorioso(posicao,1,0)
+    const arrayLE = criaArrayVitorioso(posicao,0,-1)
+    const arrayLD = criaArrayVitorioso(posicao,0,1)
+    const arrayTv1 = criaArrayVitorioso(posicao,1,1)
+    const arrayTva = criaArrayVitorioso(posicao,-1,-1)
+    const arraytv2 = criaArrayVitorioso(posicao,1,-1)
+    const arrayTv2a = criaArrayVitorioso(posicao,-1,1)
+
+    const arrayTotal = [arrayLB,arrayLE,arrayLD,arrayTv1,arrayTva,arraytv2,arrayTv2a]
+
+
+    arrayTotal.forEach(item =>{
+        const arrayvitoria = item
+        const resultado = validarVitoria(arrayvitoria, arrayPosicao)
+        if(resultado){
+            console.log('vencedor')
+            //cria tela de vencedor
+        }
+    })
+}
 
 tabulacao(containerGame)
 
