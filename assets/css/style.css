@@ -94,26 +94,25 @@ main {
         justify-content: space-evenly;
         align-items: center;
     }
-    
-    .linha {
-        width: var(--raioDoCirculo);
-        height: var(--raioDoCirculo);
-        box-shadow: 0 0 8px 1.5px var(--corPreto) inset;
-        border-radius: 100%;
-        text-align: center;
-        /* background-image: url("../img/peixeAzul.png"); */
-        background-repeat: no-repeat;
-        background-size: contain;
-        padding: 22px;
-    }
-        .jogador1, .jogador2 {
+        .linha {
+            width: var(--raioDoCirculo);
+            height: var(--raioDoCirculo);
+            box-shadow: 0 0 8px 1.5px var(--corPreto) inset;
+            border-radius: 100%;
+            text-align: center;
+            /* background-image: url("../img/peixeAzul.png"); */
             background-repeat: no-repeat;
             background-size: contain;
-            animation-name: queda;
-            animation-duration: 2s;
+            padding: 22px;
         }
-            .jogador2 { background-image: url("../img/peixeVerde.png"); }
-            .jogador1 { background-image: url("../img/peixeVermelho.png"); }
+            .jogador1, .jogador2 {
+                background-repeat: no-repeat;
+                background-size: contain;
+                animation-name: queda;
+                animation-duration: 2s;
+            }
+                .jogador2 { background-image: url("../img/peixeVerde.png"); }
+                .jogador1 { background-image: url("../img/peixeVermelho.png"); }
 
 #corpo {
     background-image: url("../img/fundoBK.jpg");
@@ -121,21 +120,24 @@ main {
     background-size: cover;
 }
 
-
 footer{
     width: 100%;
     height: 200px;
+    position: absolute;
+    top: 140px;
 }
+
 .container-placar{
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-evenly;
 }
     .placar {
-        height: 80px;
-        width: 300px;
+        height: 60px;
+        width: 105px;
         position: relative;
     }
+        .peixe1{ right: 0; }
 
         .container-imgPlayer{
             height: 60px;
@@ -145,10 +147,6 @@ footer{
             position: absolute;
             padding: 8px;
             z-index: 2; 
-        }
-
-        .peixe1{
-            right: 0;
         }
 
         .sepacarao{
@@ -162,7 +160,6 @@ footer{
             position: absolute;
             z-index: 1;
         }
-
             .sepacarao p{
                 margin-left: 10px;
                 margin-right: 10px;
