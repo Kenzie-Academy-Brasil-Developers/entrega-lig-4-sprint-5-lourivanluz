@@ -241,7 +241,6 @@ footer{
     100%{ transform: scale(50%); }
 }
         
-
 @keyframes queda {
     0%{
         transform: translateY(-580%);
@@ -273,19 +272,18 @@ footer{
         box-shadow: 0 0 8px 2px #0f6d77;
         border-radius: 20px;
     }
+
     footer{ top: 120px; }
+
     .instrucao {
         margin-right: 20px;
         right: 30px;
         top: 15px;
     }
-
-/* ---------------------------------- */
     
     #telaVitoria {
         width: 100%;
         height: 100%;
         border-radius: 20px;
     }
-    
 }
