@@ -273,6 +273,7 @@ const criaTelaVitoria = (jogador) =>{
 
 
     textoVitoria.setAttribute('id', 'textoVitoria')
+    textoVitoria.innerText = 'Vitória!!'
     divImagem.setAttribute('id','divImagem')
     telaVitoria.setAttribute('id', 'telaVitoria')
 
@@ -285,6 +286,7 @@ const criaTelaVitoria = (jogador) =>{
         divImagem.classList.add('imgJogador2')
     }else{
         telaVitoria.classList.add('telaEmpate')
+        textoVitoria.innerText = 'Empate!'
         divImagem.classList.add('imgEmpate')
     }
 
