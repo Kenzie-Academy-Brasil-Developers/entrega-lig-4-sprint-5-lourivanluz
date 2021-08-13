@@ -212,7 +212,7 @@ const validarVitoria = (arrayVitoria, arrayPosicao) => {
     }
     return result
 }
-
+let interruptor = true
 const condicaoDeVitoria = (posicao, posicaojogada,jogador) =>{
 
     const arrayPosicao = posicaojogada
@@ -236,11 +236,19 @@ const condicaoDeVitoria = (posicao, posicaojogada,jogador) =>{
 
             console.log('vencedor' + jogador)
             placar(jogador)
+            if(interruptor){
+                criaTelaVitoria(jogador)
+            }
             
-            criaTelaVitoria(jogador)
             //cria tela de vencedor com o jogador
             reseteJogo()
             contador = 0
+
+            if(interruptor === false){
+                interruptor = true
+            }else {
+                interruptor = false
+            }
         }
     })
 }
