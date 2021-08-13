@@ -22,7 +22,7 @@ const jogar = (elemento) =>{
         condicaoDeVitoria(posicao,todasPosicoesJogadas,transformaJogador(contador))
         trocaJogador(celulaSelecionada)
         if(contador%2!==0 ){ //&& bot ligaod
-            //bot()
+            // bot()
         }
     }
 }
@@ -102,6 +102,21 @@ function reseteJogo () {
     alvo.remove()
     criaAlvo()
 }
+
+const botaoResete = () => {
+    const buttonResetar = document.querySelector(".button-resetar") 
+
+    buttonResetar.addEventListener("click", (e) => {
+        let spanPlacarJogador1 = document.querySelector(".placar-jogador-um")
+        let spanPlacarJogador2 = document.querySelector(".placar-jogador-dois")
+        spanPlacarJogador1.innerText = 0
+        spanPlacarJogador2.innerText = 0
+        contador = 0
+        reseteJogo()
+    })
+}
+
+botaoResete()
 
 function criaAlvo() {
     const paiDoGame = document.querySelector('#pai-do-game')

@@ -42,7 +42,7 @@ main {
 }
 
 .container-geral{
-    /* max-width: 1024px; */
+    max-width: 1024px;
     min-height: 100vh;
     margin: 0 auto;
 }
@@ -116,7 +116,7 @@ main {
             animation-name: queda;
             animation-duration: 2s;
         }
-            .jogador2 { background-image: url("../img/peixeVerde.png"); }
+            .jogador2 { background-image: url("../img/peixeAzul.png"); }
             .jogador1 { background-image: url("../img/peixeVermelho.png"); }
 
 #corpo {
@@ -136,22 +136,23 @@ main {
     top: 0;
     display: flex;
     align-items: center;
-    background-color: #ffffff85;
+    background-color: #ffffffd9;
 }
 
 .regras-conteudo {
     display: block;
-    max-width: 500px;
+    max-width: 300px;
     max-height: 400px;
     background-color: white;
     z-index: 2;
     margin: 0 auto;
     text-align: center;
-    padding: 30px;
-    line-height: 50px;
-
+    padding: 20px;
+    line-height: 30px;
+    border-radius: 50px;
+    background-color: #34d0de;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
 
 footer{
     width: 100%;
