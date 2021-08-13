@@ -73,6 +73,31 @@ main {
             display: none;
         }
 
+
+        .telaInstrucao{
+            display: none;
+            font-family: 'Acme', sans-serif;
+            color: white;
+            width: 80%;
+            border: 6px solid rgb(121, 79, 3);
+            background-color: orange;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            padding: 15px 15px;
+ 
+        }
+            .container-dicas{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+                .dicaVitoria{
+                    width: 200px;
+                }
+
     #pai-do-game {
         display: flex;
         align-items: center;
