@@ -1,5 +1,5 @@
 const containerGame = document.querySelector("#game")
-const instrucao = document.querySelector('#instrucao')
+const instrucao = document.querySelector('.instru')
 const btnMostrarDica = document.querySelector('#btnTelaInstrucao')
 
 let contador = 0
@@ -65,10 +65,13 @@ const tabulacao = (table) => {
 
             linha.addEventListener("click", (e) => {
                 const colunaSelecionada = e.target.parentElement
-                if(contador<42){
+                if(contador<=42){
                     jogar(colunaSelecionada) 
                 }else{
-                    console.log('chama tela Empate')
+                    //console.log('chama tela Empate')
+                    criaTelaVitoria('empate')
+                    reseteJogo()
+                    contador = 0
                 }
                        
             })
@@ -121,10 +124,10 @@ const posicaoJogador = (posicao,jogador) => {
 
 
 function reseteJogo () {
-  
     const alvo = document.querySelector('#game')
     alvo.remove()
-    criaAlvo()
+    criaAlvo() 
+    contador = 0
 }
 
 function criaAlvo() {
@@ -233,6 +236,8 @@ const condicaoDeVitoria = (posicao, posicaojogada,jogador) =>{
 
             console.log('vencedor' + jogador)
             placar(jogador)
+            
+            criaTelaVitoria(jogador)
             //cria tela de vencedor com o jogador
             reseteJogo()
             contador = 0
@@ -257,6 +262,58 @@ const bot = (ligado) =>{
     const elemento = filhos[numberRandom]
     elemento.click()
 }
+
+
+const criaTelaVitoria = (jogador) =>{
+   
+    const alvo = document.querySelector('.container-geral')
+
+    const telaVitoria = document.createElement('div')
+    const textoVitoria = document.createElement('h2')
+    const divImagem = document.createElement('div')
+
+
+    textoVitoria.setAttribute('id', 'textoVitoria')
+    textoVitoria.innerText = 'Vitória!!'
+    divImagem.setAttribute('id','divImagem')
+    telaVitoria.setAttribute('id', 'telaVitoria')
+
+    if(jogador === 'jogador1'){
+        telaVitoria.classList.add('telaJogador1')
+        divImagem.classList.add('imgJogador1')
+
+    }else if (jogador === 'jogador2'){
+        telaVitoria.classList.add('telaJogador2')
+        divImagem.classList.add('imgJogador2')
+    }else{
+        telaVitoria.classList.add('telaEmpate')
+        textoVitoria.innerText = 'Empate!'
+        divImagem.classList.add('imgEmpate')
+    }
+
+    telaVitoria.appendChild(textoVitoria)
+    telaVitoria.appendChild(divImagem)
+
+    alvo.appendChild(telaVitoria)
+
+
+    telaVitoria.addEventListener('click', () => {
+        telaVitoria.remove()
+    })
+
+}
+
+
+const buttonResetar = document.querySelector('#bntMenu')
+buttonResetar.addEventListener("click", (e) => {
+    let spanPlacarJogador1 = document.querySelector(".placar-jogador-um")
+    let spanPlacarJogador2 = document.querySelector(".placar-jogador-dois")
+    spanPlacarJogador1.innerText = 0
+    spanPlacarJogador2.innerText = 0
+    contador = 0
+    reseteJogo()
+})
+
 
 tabulacao(containerGame)
 

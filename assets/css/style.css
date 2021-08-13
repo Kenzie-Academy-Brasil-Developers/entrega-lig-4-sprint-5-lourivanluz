@@ -1,17 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');
+
 /* RESETE */
-html, body, header, main, footer, div, h1, p, span,figure {
+html, body, header, main, footer, div, h1, h2, h3, p, span,figure {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Otomanopee One', sans-serif;
 }
-img{
-    max-width: 100%;
-    display: block;
-}
+img{ max-width: 100%; display: block; }
 
  /* VARIÁVEIS DE COR */
 :root {
-    --corPreto: #000000b2;
+    --corPreto: #4eddf7b2;
     --corBordaJogador1: var(--corPreto);
     --corFundoJogador1: #ca050be3;
     --corBordaJogador2: #013d01;
@@ -28,59 +28,40 @@ img{
     --borderRadius: 50px;
 }
 
-main {
+/*  MÃO NA MASSA */
+.container-geral{
+    width: 100vw;
+    max-width: 1000px;
+    height: 100vh;
     background-image: url("../img/bgMar.png");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
-
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    position: relative;
 }
+    .container-geral header{ width: 100%; height: 120px; }
 
-.container-geral{
-    max-width: 1024px;
-    min-height: 100vh;
-    margin: 0 auto;
-}
+        .imglogo { width: 150px; margin: 0 auto; }
 
-
-
-    .container-geral header{
-        width: 100%;
-        height: 120px;
-
-        /* position: relative;
-
-        height: 150px;
-        display: flex;
-        justify-content: space-between; */
-    }
-        .imglogo {
-            width: 150px;
-            margin: 0 auto;
-            
-        }
         .instrucao {
             padding: 10px;
             width: 80px;
             height: 80px;
-            margin-right: 20px;
             position: absolute;
-            right: 30px;
-            top: 15px;
+            right: 0px;
+            top: 0px;
             cursor: pointer;
-            /* display: none; */
         }
 
 
         .telaInstrucao{
             font-family: 'Acme', sans-serif;
-            color: white;
+            color: #ffffff;
             width: 80%;
-            border: 6px solid rgb(121, 79, 3);
-            background-color: orange;
+            border: 6px solid #794f03;
+            background-color: #ffa500;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -92,9 +73,9 @@ main {
         }
 
             #btnTelaInstrucao{
-                color: rgb(194, 191, 191);
+                color: #c2bfbf;
                 border: none;
-                background-color: rgb(255, 255, 255);
+                background-color: #ffffff;
                 border-radius: 100%;
                 width: 25px;
                 height: 25px;
@@ -107,10 +88,7 @@ main {
                 flex-wrap: wrap;
                 justify-content: space-around;
             }
-                .dicaVitoria{
-                    margin: 5px;
-                    width: 125px;
-                }
+                .dicaVitoria{ margin: 5px; width: 120px; }
 
     #pai-do-game {
         display: flex;
@@ -121,9 +99,7 @@ main {
     .container-game {
         display: flex;
         justify-content: center;
-        width: 98vw;
-        min-width: 319px;
-        max-width: 670px;
+        width: 100%;
         height: 55vh;
     }
 
@@ -135,26 +111,24 @@ main {
         justify-content: space-evenly;
         align-items: center;
     }
-    
-    .linha {
-        width: var(--raioDoCirculo);
-        height: var(--raioDoCirculo);
-        box-shadow: 0 0 8px 1.5px var(--corPreto) inset;
-        border-radius: 100%;
-        text-align: center;
-        /* background-image: url("../img/peixeAzul.png"); */
-        background-repeat: no-repeat;
-        background-size: contain;
-        padding: 22px;
-    }
-        .jogador1, .jogador2 {
+        .linha {
+            width: var(--raioDoCirculo);
+            height: var(--raioDoCirculo);
+            box-shadow: 0 0 8px 1.5px var(--corPreto) inset;
+            border-radius: 100%;
+            text-align: center;
             background-repeat: no-repeat;
             background-size: contain;
-            animation-name: queda;
-            animation-duration: 2s;
+            padding: 22px;
         }
-            .jogador2 { background-image: url("../img/peixeVerde.png"); }
-            .jogador1 { background-image: url("../img/peixeVermelho.png"); }
+            .jogador1, .jogador2 {
+                background-repeat: no-repeat;
+                background-size: contain;
+                animation-name: queda;
+                animation-duration: 2s;
+            }
+                .jogador2 { background-image: url("../img/peixeVerde.png"); }
+                .jogador1 { background-image: url("../img/peixeVermelho.png"); }
 
 #corpo {
     background-image: url("../img/fundoBK.jpg");
@@ -162,34 +136,33 @@ main {
     background-size: cover;
 }
 
-
 footer{
     width: 100%;
-    height: 200px;
+    height: 60px;
+    position: absolute;
+    top: 120px;
 }
+
 .container-placar{
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-evenly;
 }
     .placar {
-        height: 80px;
-        width: 300px;
+        height: 60px;
+        width: 105px;
         position: relative;
     }
+        .peixe1{ right: 0; }
 
         .container-imgPlayer{
             height: 60px;
             width: 60px;
-            background-color: white;
+            background-color: #ffffff;
             border-radius: 100%;
             position: absolute;
             padding: 8px;
             z-index: 2; 
-        }
-
-        .peixe1{
-            right: 0;
         }
 
         .sepacarao{
@@ -197,74 +170,77 @@ footer{
             padding-left: 5px;
             padding-right: 5px; 
             height: 40px;
-            width: 80px;             /* 120 */
+            width: 80px;        
             border-radius: 20px;
-            background-color: white;
+            background-color: #ffffff;
             position: absolute;
             z-index: 1;
         }
-
             .sepacarao p{
                 margin-left: 10px;
                 margin-right: 10px;
                 margin-top: 5px;
             }
 
-        .separacao1{
-            right: 25px;
-            top: 10px;
-            
+        .separacao1{ right: 25px; top: 10px; }
+        .separacao2{ left: 25px; top: 10px; text-align: right; }
+
+        #bntMenu {
+            padding: 10px;
+            border-radius: 20px;
+            border: 2px solid #808080;
+            background-color: #ff4500;
+            color: #ffffff;
         }
-        .separacao2{
-            left: 25px;
-            top: 10px;
-            text-align: right;
+
+    #telaVitoria {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        z-index: 2;
+        background-color: #34ddf0b7;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        justify-content: space-evenly;
+    }
+        #telaVitoria h2 {
+            font-weight: 600;
+            font-size: 42px;
+            color: #dadd1d;
+            animation: zoom 3s linear infinite;
         }
-
-
-/* 
-
-.coluna {
-    height: var(--alturaDaColuna);
-    width: var(--larguraDaColuna);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: var(--corFundoColuna);
-}
-    .coluna0 {
-        border-top-left-radius: var(--borderRadius);
-        border-bottom-left-radius: var(--borderRadius);
-    }
-    .coluna6 {
-        border-top-right-radius: var(--borderRadius);
-        border-bottom-right-radius: var(--borderRadius);
-    }
-
-.linha {
-    width: var(--raioDoCirculo);
-    height: var(--raioDoCirculo);
-    border: 1px solid var(--corPreto);
-    border-radius: 100%;
-    text-align: center;
-    background-color: var(--corFundoLinha);
-}
-    .jogador1 {
-        border: 2px solid var(--corBordaJogador1);
-        background-color: var(--corFundoJogador1);
+    #divImagem {
+        height: 200px;
+        width: 200px;
+        padding: 20px;
+        border-radius: 50%;
         box-shadow: 0 0 8px 1.5px var(--corPreto) inset;
-        animation-name: queda;
-        animation-duration: 2s;
     }
-    .jogador2 {
-        border: 2px solid var(--corBordaJogador2);
-        background-color: var(--corFundoJogador2);
-        box-shadow: 0 0 8px 3px var(--corBordaJogador2) inset;
-        animation-name: queda;
-        animation-duration: 2s; 
-    }*/
+    .imgJogador1 {
+        background-image: url('../img/peixeVermelho.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    .imgJogador2 {
+        background-image: url('../img/peixeVerde.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    .imgEmpate {
+        background-image: url('../img/peixeEmpate.png');
+        background-repeat: no-repeat;
+        background-size: 170px;
+        background-position: center;
+    }
 
+@keyframes zoom {
+    0%{ transform: scale(50%); }
+    50%{ transform: scale(150%); }
+    100%{ transform: scale(50%); }
+}
+        
 @keyframes queda {
     0%{
         transform: translateY(-580%);
@@ -277,5 +253,37 @@ footer{
     }
     100%{
         transform: translateY(0%);
+    }
+}
+
+@media (min-width: 919px) {
+    body {
+        width: 100vw;
+        height: 100vh;
+        background-color: #39bbc9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .container-geral {
+        width: 70vw;
+        max-width: 900px;
+        height: 90vh;
+        box-shadow: 0 0 8px 2px #0f6d77;
+        border-radius: 20px;
+    }
+
+    footer{ top: 120px; }
+
+    .instrucao {
+        margin-right: 20px;
+        right: 30px;
+        top: 15px;
+    }
+    
+    #telaVitoria {
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
     }
 }
