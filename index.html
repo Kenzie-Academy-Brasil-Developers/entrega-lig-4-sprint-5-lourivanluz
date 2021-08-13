@@ -8,23 +8,16 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>4 em Linha</title>
 </head>
-<body id="corpo">
-
-    <main>
+<body>
+    
+    <main class="container-geral">
         <header>
-            <!-- <span class="titulo">jogo lig4</span> -->
-            <!-- <figure>
-                <img src="./assets/img/4linha.svg" alt="Titulo do jogo, Lig 4">
-
-            </figure> -->
-            <div>
-                <figure class="logo">
-                    <img src="./assets/img/4linha.png" alt="logo">
-                </figure>
-
-                <button id="bnt">?</button>
-            </div>
-            
+            <figure class="imglogo">
+                <img src='./assets/img/4linha.png' alt="logo">
+            </figure>
+            <figure class="instrucao">
+                <img src='./assets/img/interrogacao.png' alt="instrucao">
+            </figure>
         </header>
 
         <div id="pai-do-game">
@@ -32,45 +25,36 @@
         </div>
 
         <footer>
-            <!-- <div id="topo-game">
-                <div id="selecao-jogador">
-                    <span class="txtSelecaoJogador">selecionar player</span>
-                    <div class="escolha">
-                        <button class="botao b1"></button>
-                        <button class="botao b2"></button>
+            <div class="container-placar">
+                <div class="placar1 placar">
+                    <div class="container-imgPlayer peixe1">
+                        <figure>
+                            <img src="./assets/img/peixeVermelho.png" alt="peixe">
+                        </figure>
                     </div>
+                    <div class="sepacarao separacao1">
+                        <p><span class="placar-jogador-um">0</span></p>
+                    </div> 
                 </div>
-    
+
+                <button id="bntMenu">menu</button>
+
+                <div class="placar1 placar">
+                    <div class="container-imgPlayer peixe2">
+                        <figure>
+                            <img src="./assets/img/peixeVerde.png" alt="peixe">
+                        </figure>
+                    </div>
+                    <div class="sepacarao separacao2">
+                        <p><span class="placar-jogador-dois">0</span></p>
+                    </div> 
+                </div>  
+            </div>
+
+            <div class="instru">
                 
-            </div> -->
-            <div>
-                <div>
-                    <figure>
-                        <img src="" alt="peixe">
-                    </figure>
-                </div>
-                <div>
-                    <p>vitorias: <span>0</span></p>
-                </div>
-            </div>
-            <div>
-                <button>menu</button>
-            </div>
-            <div>
-                <div>
-                    <figure>
-                        <img src="" alt="peixe">
-                    </figure>
-                </div>
-                <div>
-                    <p>vitorias: <span>0</span></p>
-                </div>
             </div>
         </footer>
-
-
-
-
     </main>
 
     <script src="./assets/js/index.js"></script>
