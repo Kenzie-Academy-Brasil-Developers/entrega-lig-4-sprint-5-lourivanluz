@@ -187,5 +187,5 @@ footer{
         box-shadow: 0 0 8px 2px #0f6d77;
         border-radius: 20px;
     }
-    
+    footer{ top: 120px; }
 }
