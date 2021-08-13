@@ -5,28 +5,80 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>4 em Linha</title>
 </head>
 <body>
-    <header>
-        jogo lig4
-    </header>
-    <main>
-        <div>
-            <span>selecionar player</span>
-        </div>
+    
+    <main class="container-geral">
+        <header>
+            <figure class="imglogo">
+                <img src='./assets/img/4linha.png' alt="logo">
+            </figure>
+            <figure id="instrucao" class="instrucao">
+                <img src='./assets/img/interrogacao.png' alt="instrucao">
+            </figure>
+        </header>
 
-        <div class="container-placar"> Placar
-            <p>Jogador Um: <span class="placar-jogador-um">0</span></p>
-            <p>Jogador Dois: <span class="placar-jogador-dois">0</span></p>
-        </div>
-        <button>start</button>
         <div id="pai-do-game">
             <div id="game" class="container-game"></div>
         </div>
+
+        <div class="telaInstrucao">
+            <button id="btnTelaInstrucao">x</button>
+            <p><en>4linha</en> é um jogo de Estratégia onde o objetivo e completar 4 peixinhos em ordem,<br>
+                Alguns exemplos de como conseguir a vitória, boa sorte !!
+            </p>
+            <div class="container-dicas">
+                <figure class="dicaVitoria">
+                    <img src="./assets/img/vitoriaTransversal.png" alt="vitoriatransvesal">
+                </figure>
+                <figure class="dicaVitoria">
+                    <img src="./assets/img/vitoriaVertical.png.png" alt="vitoriaVertical">
+                </figure>
+                <figure class="dicaVitoria">
+                    <img src="./assets/img/vitoriaHorizontal.png" alt="vitoriaHorizontal">
+                </figure>
+            </div>
+            
+        </div>
+        <footer>
+            <div class="container-placar">
+                <div class="placar1 placar">
+                    <div class="container-imgPlayer peixe1">
+                        <figure>
+                            <img src="./assets/img/peixeVermelho.png" alt="peixe">
+                        </figure>
+                    </div>
+                    <div class="sepacarao separacao1">
+                        <p><span class="placar-jogador-um">0</span></p>
+                    </div> 
+                </div>
+
+                <button>menu</button>
+
+                <div class="placar1 placar">
+                    <div class="container-imgPlayer peixe2">
+                        <figure>
+                            <img src="./assets/img/peixeAzul.png" alt="peixe">
+                        </figure>
+                    </div>
+                    <div class="sepacarao separacao2">
+                        <p><span class="placar-jogador-dois">0</span></p>
+                    </div> 
+                </div>  
+            </div>
+
+            <div class="instru">
+            </div>
+            
+        </footer>
     </main>
 
-    <script src="index.js"></script>
+    <script src="./assets/js/index.js"></script>
 </body>
 </html>

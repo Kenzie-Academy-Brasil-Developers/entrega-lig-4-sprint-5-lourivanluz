@@ -1,12 +1,38 @@
 const containerGame = document.querySelector("#game")
+const instrucao = document.querySelector('#instrucao')
+const btnMostrarDica = document.querySelector('#btnTelaInstrucao')
 
 let contador = 0
 
+
+
+const mostrarDica = () =>{
+    const telaInstrucao = document.querySelector('.telaInstrucao')
+    telaInstrucao.setAttribute('style','display:block;')
+}
+
+const sumirDica = () =>{
+    const telaInstrucao = document.querySelector('.telaInstrucao')
+    telaInstrucao.setAttribute('style','display:none;')
+}
+
+
+instrucao.addEventListener('click',()=>{
+    mostrarDica()
+})
+btnMostrarDica.addEventListener('click',()=>{
+    sumirDica()
+})
+
+
+
 const transformaJogador = (num) =>{
     if(num%2===0){
+        
         return'jogador1'
     }
     return 'jogador2'
+    
 
 }
 
@@ -16,9 +42,12 @@ const jogar = (elemento) =>{
     if(celulaSelecionada!== undefined){
         const posicao = celulaSelecionada.getAttribute('block')
 
-       const todasPosicoesJogadas = posicaoJogador(posicao,transformaJogador(contador))
-       condicaoDeVitoria(posicao,todasPosicoesJogadas)
+        const todasPosicoesJogadas = posicaoJogador(posicao,transformaJogador(contador))
+        condicaoDeVitoria(posicao,todasPosicoesJogadas,transformaJogador(contador))
         trocaJogador(celulaSelecionada)
+        if(contador%2!==0 ){ //&& bot ligaod
+            //bot()
+        }
     }
 }
 
@@ -36,7 +65,12 @@ const tabulacao = (table) => {
 
             linha.addEventListener("click", (e) => {
                 const colunaSelecionada = e.target.parentElement
-                jogar(colunaSelecionada)        
+                if(contador<42){
+                    jogar(colunaSelecionada) 
+                }else{
+                    console.log('chama tela Empate')
+                }
+                       
             })
             coluna.appendChild(linha);
         }
@@ -65,6 +99,8 @@ const trocaJogador = (elemento) =>{
     const jogador = transformaJogador(contador)
     elemento.classList.add(jogador)
     contador++
+    
+
 }
 
 const posicaoJogador = (posicao,jogador) => {
@@ -174,7 +210,7 @@ const validarVitoria = (arrayVitoria, arrayPosicao) => {
     return result
 }
 
-const condicaoDeVitoria = (posicao, posicaojogada) =>{
+const condicaoDeVitoria = (posicao, posicaojogada,jogador) =>{
 
     const arrayPosicao = posicaojogada
 
@@ -193,10 +229,33 @@ const condicaoDeVitoria = (posicao, posicaojogada) =>{
         const arrayvitoria = item
         const resultado = validarVitoria(arrayvitoria, arrayPosicao)
         if(resultado){
-            console.log('vencedor')
-            //cria tela de vencedor
+
+
+            console.log('vencedor' + jogador)
+            placar(jogador)
+            //cria tela de vencedor com o jogador
+            reseteJogo()
+            contador = 0
         }
     })
+}
+
+const bot = (ligado) =>{
+    const colunas = document.querySelectorAll('.coluna')
+    const filhos =[]
+    colunas.forEach(item =>{
+        const elemento = item.firstChild
+
+        if(!elemento.classList.contains('jogador1') && !elemento.classList.contains('jogador2')){
+            filhos.push(elemento)
+            
+        }
+    })
+
+    const numberRandom = Math.floor(Math.random() * (((filhos.length-1) - 0 )+ 1)) + 0
+
+    const elemento = filhos[numberRandom]
+    elemento.click()
 }
 
 tabulacao(containerGame)
