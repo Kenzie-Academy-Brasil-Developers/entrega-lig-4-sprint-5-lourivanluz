@@ -122,10 +122,9 @@ const posicaoJogador = (posicao,jogador) => {
 
 
 function reseteJogo () {
-  
     const alvo = document.querySelector('#game')
     alvo.remove()
-    criaAlvo()
+    criaAlvo() 
     contador = 0
 }
 
