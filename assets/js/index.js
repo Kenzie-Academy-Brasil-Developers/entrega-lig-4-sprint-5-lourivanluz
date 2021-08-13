@@ -300,5 +300,17 @@ const criaTelaVitoria = (jogador) =>{
 
 }
 
+
+const buttonResetar = document.querySelector('#bntMenu')
+buttonResetar.addEventListener("click", (e) => {
+    let spanPlacarJogador1 = document.querySelector(".placar-jogador-um")
+    let spanPlacarJogador2 = document.querySelector(".placar-jogador-dois")
+    spanPlacarJogador1.innerText = 0
+    spanPlacarJogador2.innerText = 0
+    contador = 0
+    reseteJogo()
+})
+
+
 tabulacao(containerGame)
 
