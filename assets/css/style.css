@@ -70,8 +70,47 @@ main {
             position: absolute;
             right: 30px;
             top: 15px;
-            display: none;
+            cursor: pointer;
+            /* display: none; */
         }
+
+
+        .telaInstrucao{
+            font-family: 'Acme', sans-serif;
+            color: white;
+            width: 80%;
+            border: 6px solid rgb(121, 79, 3);
+            background-color: orange;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            padding: 15px 15px;
+            display: none;
+ 
+        }
+
+            #btnTelaInstrucao{
+                color: rgb(194, 191, 191);
+                border: none;
+                background-color: rgb(255, 255, 255);
+                border-radius: 100%;
+                width: 25px;
+                height: 25px;
+                position: absolute;
+                right: 5px;
+            }
+
+            .container-dicas{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+                .dicaVitoria{
+                    margin: 5px;
+                    width: 125px;
+                }
 
     #pai-do-game {
         display: flex;
