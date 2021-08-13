@@ -1,6 +1,30 @@
 const containerGame = document.querySelector("#game")
+const instrucao = document.querySelector('#instrucao')
+const btnMostrarDica = document.querySelector('#btnTelaInstrucao')
 
 let contador = 0
+
+
+
+const mostrarDica = () =>{
+    const telaInstrucao = document.querySelector('.telaInstrucao')
+    telaInstrucao.setAttribute('style','display:block;')
+}
+
+const sumirDica = () =>{
+    const telaInstrucao = document.querySelector('.telaInstrucao')
+    telaInstrucao.setAttribute('style','display:none;')
+}
+
+
+instrucao.addEventListener('click',()=>{
+    mostrarDica()
+})
+btnMostrarDica.addEventListener('click',()=>{
+    sumirDica()
+})
+
+
 
 const transformaJogador = (num) =>{
     if(num%2===0){
