@@ -130,7 +130,26 @@ main {
 }
 
 .regras {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff85;
+}
+
+.regras-conteudo {
     display: block;
+    max-width: 500px;
+    max-height: 400px;
+    background-color: white;
+    z-index: 2;
+    margin: 0 auto;
+    text-align: center;
+    padding: 30px;
+    line-height: 50px;
+
 }
 
 
