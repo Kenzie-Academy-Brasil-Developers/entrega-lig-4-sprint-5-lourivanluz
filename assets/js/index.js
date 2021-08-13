@@ -65,7 +65,7 @@ const tabulacao = (table) => {
 
             linha.addEventListener("click", (e) => {
                 const colunaSelecionada = e.target.parentElement
-                if(contador<42){
+                if(contador===42){
                     jogar(colunaSelecionada) 
                 }else{
                     //console.log('chama tela Empate')
