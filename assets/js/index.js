@@ -258,5 +258,39 @@ const bot = (ligado) =>{
     elemento.click()
 }
 
+
+const criaTelaVitoria = (jogador) =>{
+   
+    const alvo = document.querySelector('.container-geral')
+
+    const telaVitoria = document.createElement('div')
+    const textoVitoria = document.createElement('h2')
+    const divImagem = document.createElement('div')
+
+
+    textoVitoria.setAttribute('id', 'textoVitoria')
+    divImagem.setAttribute('id','divImagem')
+    telaVitoria.setAttribute('id', 'telaVitoria')
+
+    if(jogador === 'jogador1'){
+        telaVitoria.classList.add('telaJogador1')
+        divImagem.classList.add('imgJogador1')
+    }else {
+        telaVitoria.classList.add('telaJogador2')
+        divImagem.classList.add('imgJogador2')
+    }
+
+    telaVitoria.appendChild(textoVitoria)
+    telaVitoria.appendChild(divImagem)
+
+    alvo.appendChild(telaVitoria)
+
+
+    telaVitoria.addEventListener('click', () => {
+        telaVitoria.remove()
+    })
+
+}
+
 tabulacao(containerGame)
 
