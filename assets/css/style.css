@@ -133,7 +133,7 @@ footer{
             padding-left: 5px;
             padding-right: 5px; 
             height: 40px;
-            width: 80px;             /* 120 */
+            width: 80px;        
             border-radius: 20px;
             background-color: #ffffff;
             position: absolute;
@@ -151,10 +151,11 @@ footer{
         #bntMenu {
             padding: 10px;
             border-radius: 20px;
-            border: 1px solid #808080;
+            border: 2px solid #808080;
             background-color: #ff4500;
             color: #ffffff;
         }
+        
 
 @keyframes queda {
     0%{
