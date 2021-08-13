@@ -94,7 +94,7 @@ const buscaFilho = (elemento,classe1,classe2) =>{
             
         }
     }
-    //popup erro ?
+    
 }
 
 const trocaJogador = (elemento) =>{
