@@ -1,5 +1,5 @@
 const containerGame = document.querySelector("#game")
-const instrucao = document.querySelector('#instrucao')
+const instrucao = document.querySelector('.instru')
 const btnMostrarDica = document.querySelector('#btnTelaInstrucao')
 
 let contador = 0
