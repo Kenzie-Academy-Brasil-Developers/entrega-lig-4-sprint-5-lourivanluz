@@ -69,8 +69,13 @@ img{ max-width: 100%; display: block; }
             z-index: 3;
             padding: 15px 15px;
             display: none;
+            padding-right: 5px;
  
         }
+
+            .telaInstrucao p {
+                padding-right: 20px;
+            }
 
             #btnTelaInstrucao{
                 color: #c2bfbf;
