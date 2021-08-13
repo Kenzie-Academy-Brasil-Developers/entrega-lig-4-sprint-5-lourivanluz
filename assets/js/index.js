@@ -68,7 +68,8 @@ const tabulacao = (table) => {
                 if(contador<42){
                     jogar(colunaSelecionada) 
                 }else{
-                    console.log('chama tela Empate')
+                    //console.log('chama tela Empate')
+                    criaTelaVitoria('empate')
                 }
                        
             })
@@ -125,6 +126,7 @@ function reseteJogo () {
     const alvo = document.querySelector('#game')
     alvo.remove()
     criaAlvo()
+    contador = 0
 }
 
 function criaAlvo() {
@@ -233,6 +235,8 @@ const condicaoDeVitoria = (posicao, posicaojogada,jogador) =>{
 
             console.log('vencedor' + jogador)
             placar(jogador)
+            
+            criaTelaVitoria(jogador)
             //cria tela de vencedor com o jogador
             reseteJogo()
             contador = 0
@@ -275,9 +279,13 @@ const criaTelaVitoria = (jogador) =>{
     if(jogador === 'jogador1'){
         telaVitoria.classList.add('telaJogador1')
         divImagem.classList.add('imgJogador1')
-    }else {
+
+    }else if (jogador === 'jogador2'){
         telaVitoria.classList.add('telaJogador2')
         divImagem.classList.add('imgJogador2')
+    }else{
+        telaVitoria.classList.add('telaEmpate')
+        divImagem.classList.add('imgEmpate')
     }
 
     telaVitoria.appendChild(textoVitoria)
