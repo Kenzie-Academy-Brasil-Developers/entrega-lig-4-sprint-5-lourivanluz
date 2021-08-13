@@ -87,10 +87,7 @@ img{ max-width: 100%; display: block; }
                 flex-wrap: wrap;
                 justify-content: space-around;
             }
-                .dicaVitoria{
-                    margin: 5px;
-                    width: 125px;
-                }
+                .dicaVitoria{ margin: 5px; width: 120px; }
 
     #pai-do-game {
         display: flex;
