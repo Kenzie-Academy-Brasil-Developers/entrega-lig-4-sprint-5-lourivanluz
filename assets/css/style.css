@@ -57,10 +57,10 @@ img{ max-width: 100%; display: block; }
 
         .telaInstrucao{
             font-family: 'Acme', sans-serif;
-            color: white;
+            color: #ffffff;
             width: 80%;
-            border: 6px solid rgb(121, 79, 3);
-            background-color: orange;
+            border: 6px solid #794f03;
+            background-color: #ffa500;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -72,9 +72,9 @@ img{ max-width: 100%; display: block; }
         }
 
             #btnTelaInstrucao{
-                color: rgb(194, 191, 191);
+                color: #c2bfbf;
                 border: none;
-                background-color: rgb(255, 255, 255);
+                background-color: #ffffff;
                 border-radius: 100%;
                 width: 25px;
                 height: 25px;
