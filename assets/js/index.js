@@ -4,8 +4,6 @@ const btnMostrarDica = document.querySelector('#btnTelaInstrucao')
 
 let contador = 0
 
-
-
 const mostrarDica = () =>{
     const telaInstrucao = document.querySelector('.telaInstrucao')
     telaInstrucao.setAttribute('style','display:block;')
@@ -23,7 +21,6 @@ instrucao.addEventListener('click',()=>{
 btnMostrarDica.addEventListener('click',()=>{
     sumirDica()
 })
-
 
 
 const transformaJogador = (num) =>{
@@ -51,7 +48,6 @@ const jogar = (elemento) =>{
     }
 }
 
-
 const tabulacao = (table) => {
 
     for (let i = 0; i < 7; i++) {
@@ -68,10 +64,8 @@ const tabulacao = (table) => {
                 if(contador<42){
                     jogar(colunaSelecionada) 
                 }else{
-                    //console.log('chama tela Empate')
                     criaTelaVitoria('empate')
                     reseteJogo()
-                    contador = 0
                 }
                        
             })
@@ -120,8 +114,6 @@ const posicaoJogador = (posicao,jogador) => {
 
     return arrayPosicao
 }
-
-
 
 function reseteJogo () {
     const alvo = document.querySelector('#game')
@@ -240,9 +232,7 @@ const condicaoDeVitoria = (posicao, posicaojogada,jogador) =>{
                 criaTelaVitoria(jogador)
             }
             
-            //cria tela de vencedor com o jogador
             reseteJogo()
-            contador = 0
 
             if(interruptor === false){
                 interruptor = true
