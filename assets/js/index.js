@@ -212,7 +212,7 @@ const validarVitoria = (arrayVitoria, arrayPosicao) => {
     }
     return result
 }
-/* let interruptor = true */
+let interruptor = true 
 const condicaoDeVitoria = (posicao, posicaojogada,jogador) =>{
 
     const arrayPosicao = posicaojogada
@@ -224,12 +224,12 @@ const condicaoDeVitoria = (posicao, posicaojogada,jogador) =>{
     const arrayTva = criaArrayVitorioso(posicao,-1,-1)
     const arraytv2 = criaArrayVitorioso(posicao,1,-1)
     const arrayTv2a = criaArrayVitorioso(posicao,-1,1)
-    const arrayLinha1 = linhabug1(posicao)
-    const arrayLinha2 = linhabug2(posicao)
-    const arrayVertical1 = verticalbug1(posicao)
-    const arrayVertical1a = verticalbug1a(posicao)
-    const arrayVertical2 = verticalbug2(posicao)
-    const arrayVertical2a = verticalbug2a(posicao)
+    const arrayLinha1 = posicaoMeio(posicao,0,1)
+    const arrayLinha2 = posicaoMeio(posicao,0,-1)
+    const arrayVertical1 = posicaoMeio(posicao,-1,-1)
+    const arrayVertical1a = posicaoMeio(posicao,1,1)
+    const arrayVertical2 = posicaoMeio(posicao,1,-1)
+    const arrayVertical2a = posicaoMeio(posicao,-1,1)
 
     const arrayTotal = [arrayLB,arrayLE,arrayLD,arrayTv1,arrayTva,arraytv2,arrayTv2a,arrayLinha1,arrayLinha2,
         arrayVertical1,arrayVertical1a,arrayVertical2,arrayVertical2a]
@@ -239,24 +239,18 @@ const condicaoDeVitoria = (posicao, posicaojogada,jogador) =>{
         const arrayvitoria = item
         const resultado = validarVitoria(arrayvitoria, arrayPosicao)
         if(resultado){
-
-
-            //console.log('vencedor' + jogador)
             placar(jogador)
+            if(interruptor){
 
-           // if(jogador'){
-                criaTelaVitoria(jogador)
-         //   }
+                criaTelaVitoria(jogador)           
+                reseteJogo()
 
-            /* if(interruptor === false){
-                interruptor = true
-            }else {
-                interruptor = false
-            } */
-            reseteJogo()
-            contador = 0
+                interruptor=false
+            }
         }
     })
+
+    interruptor = true
 }
 
 const bot = (ligado) =>{
@@ -281,6 +275,8 @@ const bot = (ligado) =>{
 const criaTelaVitoria = (jogador) =>{
    
     const alvo = document.querySelector('.container-geral')
+
+    
 
     const telaVitoria = document.createElement('div')
     const textoVitoria = document.createElement('h2')
@@ -310,7 +306,6 @@ const criaTelaVitoria = (jogador) =>{
 
     alvo.appendChild(telaVitoria)
 
-
     telaVitoria.addEventListener('click', () => {
         telaVitoria.remove()
     })
@@ -324,125 +319,39 @@ buttonResetar.addEventListener("click", (e) => {
     let spanPlacarJogador2 = document.querySelector(".placar-jogador-dois")
     spanPlacarJogador1.innerText = 0
     spanPlacarJogador2.innerText = 0
-    contador = 0
     reseteJogo()
 })
 
-const linhabug1 = (posicao) =>{
+const posicaoMeio = (posicao,lin,col) =>{
 
     const arrayVitoria = []
-    //const linhaInteira = []  
     const position = posicao.split(':')
     let linha = Number(position[0])
     let coluna = Number(position[1])
     arrayVitoria.push(posicao)
-    arrayVitoria.push(`${linha}:${coluna+1}`)
+
+   arrayVitoria.push(`${linha+lin}:${coluna+col}`)
+
     for(let contador = 0; contador<2; contador++){
-        coluna--
+
+        if(lin>0){
+            linha-=1
+        }else if (lin<0){
+            linha+=1
+        }
+
+        if(col>0){
+            coluna-=1
+        }else if (col<0){
+            coluna+=1
+        }
+
         arrayVitoria.push(`${linha}:${coluna}`)
     }
 
     return arrayVitoria
 
 }
-
-const linhabug2 = (posicao) =>{
-
-    const arrayVitoria = []
-    //const linhaInteira = []  
-    const position = posicao.split(':')
-    let linha = Number(position[0])
-    let coluna = Number(position[1])
-    arrayVitoria.push(posicao)
-    arrayVitoria.push(`${linha}:${coluna-1}`)
-    for(let contador = 0; contador<2; contador++){
-        coluna++
-        arrayVitoria.push(`${linha}:${coluna}`)
-    }
-
-    return arrayVitoria
-
-}
-
-const verticalbug1 = (posicao) =>{
-
-    const arrayVitoria = []
-    //const linhaInteira = []  
-    const position = posicao.split(':')
-    let linha = Number(position[0])
-    let coluna = Number(position[1])
-    arrayVitoria.push(posicao)
-    arrayVitoria.push(`${linha-1}:${coluna-1}`)
-    for(let contador = 0; contador<2; contador++){
-        coluna++
-        linha++
-        arrayVitoria.push(`${linha}:${coluna}`)
-    }
-
-    return arrayVitoria
-
-}
-
-const verticalbug1a = (posicao) =>{
-
-    const arrayVitoria = []
-    //const linhaInteira = []  
-    const position = posicao.split(':')
-    let linha = Number(position[0])
-    let coluna = Number(position[1])
-    arrayVitoria.push(posicao)
-    arrayVitoria.push(`${linha+1}:${coluna+1}`)
-    for(let contador = 0; contador<2; contador++){
-        coluna--
-        linha--
-        arrayVitoria.push(`${linha}:${coluna}`)
-    }
-
-    return arrayVitoria
-
-}
-
-const verticalbug2 = (posicao) =>{
-
-    const arrayVitoria = []
-    //const linhaInteira = []  
-    const position = posicao.split(':')
-    let linha = Number(position[0])
-    let coluna = Number(position[1])
-    arrayVitoria.push(posicao)
-    arrayVitoria.push(`${linha+1}:${coluna-1}`)
-    for(let contador = 0; contador<2; contador++){
-        coluna++
-        linha--
-        arrayVitoria.push(`${linha}:${coluna}`)
-    }
-
-    return arrayVitoria
-
-}
-const verticalbug2a = (posicao) =>{
-
-    const arrayVitoria = []
-    //const linhaInteira = []  
-    const position = posicao.split(':')
-    let linha = Number(position[0])
-    let coluna = Number(position[1])
-    arrayVitoria.push(posicao)
-    arrayVitoria.push(`${linha-1}:${coluna+1}`)
-    for(let contador = 0; contador<2; contador++){
-        coluna--
-        linha++
-        arrayVitoria.push(`${linha}:${coluna}`)
-    }
-
-    return arrayVitoria
-
-}
-
-
-
-
-
 
 tabulacao(containerGame)
 
